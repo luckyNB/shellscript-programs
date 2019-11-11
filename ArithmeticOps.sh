@@ -7,3 +7,5 @@ read c
 echo $a $b $c
 result=$(($a +$b *$c))
 echo $result
+result=$(($c + $a / $c))
+echo $result
