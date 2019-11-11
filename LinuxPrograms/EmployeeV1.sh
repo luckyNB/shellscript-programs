@@ -1,14 +1,29 @@
-#!/bin/bash -x
-present=$((RANDOM%10))
+        #!/bin/bash
+   
+        function myFunc( value )
+        {
+		     workHrs=50
+        isPartTime=2
+        isFullTime=1
+        counter=50
 
-if [ $present -gt 0 ]
-then
-read -p  "Enter wages per day " w
-read -p "Enter working hours" h
-amount =$(($w * $h))
-echo "$amount"
-else
- echo "No amount will be paid"
+         fullDay=8
+         halfDay=4
+         echo $(($counter +$value))
+        }
+
+        while [ $workHrs -gt $counter ]
+                do 
+        isPresent=$((RANDOM%3))
+        if  [ $isPresent -eq isFullTime ]
+                then
+        counter="$( myFunc $(($fullDay)))"
+        elif [ $isPresent -eq isPartTime ]
+        then
+        counter="$( myFunc $(($halfDay)))"
+
+   else 
+      echo "Absent";
 fi
 
- 
+
