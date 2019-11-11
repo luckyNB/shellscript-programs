@@ -1,23 +1,32 @@
-	#!/bin/bash
-	workHrs=50
-	isPartTime=4
-	isFullTime=8
-	counter=50
-
-	function myFunc( value )
-	{
-	counter=$(($counter +$value))
-	}
+#!/bin/bash -x
+	isFullTime=2
+	isHalfTime=1
+	isAbsent=0
+	ratePerHour=30
+	salary=0
+	function hour() {
 	
-	while [ workHrs -gt counter ]
-		do 
-	isPresent=$((RANDOM%3))
-	if  [ $isPresent -eq isFullTime ]
- 		then
-  	counter="$( myFunc $(($isFullTime)))"
- 	elif [ $isPresent -eq isPartTime ]
-	then
-   	counter="$( myFunc $(($isPartTime)))"
+checkRandom=$((RANDOM%3))
+	case $checkRandom in
+	$isFullTime)
+	echo 10;;
+	$isHalfTime)
+	echo 8;;
+	$isAbsent)
+	echo 0;;
+	*)
+	echo 0;;
+	esac
+	}
+	for (( day=1; day<=20; day++ ))
+do
+hour1="$( hour )"
+echo "hour1:"$hour1
+daySalary=$(( $hour1 * $ratePerHour ))
+salary=$(($salary + $daySalary ))
 
-   
+AllSalary[((counter++))]=$daySalary
+done
+echo ${AllSalary[@]}
+echo "Total Salary:"$salary
 
