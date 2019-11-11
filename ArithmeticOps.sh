@@ -27,7 +27,11 @@ ComputationArray[((counter++))]=${Computation[$key]}
 done
 echo    "Computation Array is::" ${ComputationArray[@]}
 
-echo "After Sorting" 
+echo "After Sorting in Ascending Order" 
 
 echo $(printf "%s\n" ${ComputationArray[@]} | sort -n)
+  
+echo "After Sorting in descending Order" 
+
+echo $(printf "%s\n" ${ComputationArray[@]} | sort -nr)
   
