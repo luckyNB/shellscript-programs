@@ -10,3 +10,6 @@ result=$(($a +$b *$c))
 echo $result
 result=$(($a +$b / $c))
 echo $result
+
+result=$(($a % $b + $c))
+echo $result
